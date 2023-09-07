@@ -1,0 +1,12 @@
+<l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
+  <l:l10n language="en" english-language-name="English">
+    <l:gentext key="DocName" text="Tecnical report"/>
+    <l:gentext key="Version" text="Version: "/>
+    <l:gentext key="PrepDate" text="Preparation date: "/>
+  </l:l10n>
+  <l:l10n language="ru" english-language-name="Russian">
+    <l:gentext key="DocName" text="Технический отчёт"/>
+    <l:gentext key="Version" text="Версия: "/>
+    <l:gentext key="PrepDate" text="Подготовлено: "/>
+  </l:l10n>
+</l:i18n>
