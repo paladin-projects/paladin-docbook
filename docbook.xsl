@@ -13,7 +13,7 @@
   <xsl:import href="titlepage.xsl"/>
   <xsl:import href="pagemasters.xsl"/>
 
-  <xsl:output method="xml" encoding="UTF-8"/>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
 
   <!-- word "chapter" removal from numbering -->
   <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
