@@ -43,8 +43,8 @@
     <fo:block space-before="3cm" font-size="12pt" font-weight="bold"
 		text-align="left">
       <fo:table inline-progression-dimension="100%" table-layout="fixed">
-        <fo:table-column column-width="25%"/>
-        <fo:table-column column-width="75%"/>
+        <fo:table-column column-width="40%"/>
+        <fo:table-column column-width="60%"/>
           <fo:table-body>
 <!-- author row -->
             <fo:table-row>
@@ -65,29 +65,11 @@
 	</fo:table-cell>
        </fo:table-row>
 <!-- end author -->
-<!-- editor row -->
-  <fo:table-row>
-    <fo:table-cell>
-     <fo:block margin-left="7mm">
-	<xsl:call-template name="gentext">
-		<xsl:with-param name="key" select="'Editor'"/>
-	</xsl:call-template>
-	<xsl:text>: </xsl:text>
-      </fo:block>
-     </fo:table-cell>
-     <fo:table-cell>
-      <fo:block>
-	<xsl:apply-templates mode="book.titlepage.recto.auto.mode"
-			select="d:info/d:editor"/>
-      </fo:block>
-     </fo:table-cell>
-   </fo:table-row>
-<!-- end editor -->
 <!-- ASM row -->
   <fo:table-row>
    <fo:table-cell>
     <fo:block margin-left="7mm">
-        <xsl:text>ASM заказчика:</xsl:text>
+        <xsl:text>Менеджер технической поддержки:</xsl:text>
     </fo:block>
    </fo:table-cell>
    <fo:table-cell>
