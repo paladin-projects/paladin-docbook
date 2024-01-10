@@ -305,23 +305,6 @@
   </fo:block>
 </xsl:template>
 
-<!-- editor template -->
-<xsl:template match="d:editor" mode="book.titlepage.recto.auto.mode">
-	<fo:block>
-		<xsl:apply-templates select="." mode="hpe.test.mode"/>
-	</fo:block>
-</xsl:template>
-<xsl:template match="d:editor/d:personname" mode="hpe.test.mode">
-	<fo:block>
-		<xsl:apply-templates/>
-	</fo:block>
-</xsl:template>
-<xsl:template match="d:editor/d:affiliation" mode="hpe.test.mode">
-	<fo:block>
-		<xsl:apply-templates/>
-	</fo:block>
-</xsl:template>
-
 <xsl:template match="d:pubdate" mode="book.titlepage.recto.auto.mode">
   <fo:block>
     <xsl:apply-templates/>

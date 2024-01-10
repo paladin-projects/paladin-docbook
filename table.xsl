@@ -8,7 +8,7 @@
     <!-- highlight this entry? -->
     <xsl:choose>
       <xsl:when test="ancestor::d:thead or ancestor::d:tfoot">
-        <xsl:attribute name="font-weight">bold</xsl:attribute>
+        <xsl:attribute name="font-family">alter70</xsl:attribute>
       </xsl:when>
       <!-- Make row headers bold too -->
       <xsl:when
