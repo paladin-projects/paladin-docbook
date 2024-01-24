@@ -5,7 +5,7 @@
                 exclude-result-prefixes="d"
 		version="1.0">
 
-  <xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/fo/docbook.xsl"/>
+  <xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/fo/profile-docbook.xsl"/>
   <xsl:import href="params.xsl"/>
   <xsl:import href="header.xsl"/>
   <xsl:import href="footer.xsl"/>
