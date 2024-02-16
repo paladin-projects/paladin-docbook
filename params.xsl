@@ -12,6 +12,8 @@
 
 <xsl:param name="paper.type">A4</xsl:param>
 
+<xsl:param name="ulink.show">0</xsl:param>
+
 <!-- Отступы сверху -->
 <xsl:param name="page.margin.top">10mm</xsl:param>
 <xsl:param name="region.before.extent">13mm</xsl:param>
