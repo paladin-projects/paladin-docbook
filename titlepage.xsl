@@ -15,7 +15,7 @@
 	left="15mm" width="18cm" height="26.5cm" absolute-position="fixed">
 
     <fo:block margin-left="7mm" margin-top="7mm">
-      <fo:external-graphic src="logo.svg"/>
+      <fo:external-graphic src="media/paladin-logo.svg"/>
     </fo:block>
 <!--
     <fo:block margin-right="7mm" margin-top="7mm">
