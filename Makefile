@@ -1,3 +1,4 @@
+ROOTDIR:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 FOP_CFG = $(ROOTDIR)fop/fop.xconf
 FO_XSL = $(ROOTDIR)docbook.xsl
 DOCBOOKXSLURI := "http://docbook.sourceforge.net/release/xsl-ns/current/"
@@ -19,7 +20,7 @@ test:
 %.pdf: %.fo $(FOP_CFG)
 	fop -c $(FOP_CFG) $< $@
 
-%.fo: %.xml $(FO_XSL) test
+%.fo: %.xml $(FO_XSL)
 	$(EXPORTCAT) xsltproc --xinclude -o $@ $(XSLTPROCFLAGS) $(FO_XSL) $<
 
 %.html: %.xml $(HTML_XSL)
