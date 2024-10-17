@@ -15,13 +15,25 @@
 	left="15mm" width="18cm" height="26.5cm" absolute-position="fixed">
 
     <fo:block margin-left="7mm" margin-top="7mm">
-      <fo:external-graphic src="media/paladin-logo.svg"/>
+      <fo:table inline-progression-dimension="100%" table-layout="fixed">
+        <fo:table-column column-width="50%"/>
+        <fo:table-column column-width="50%"/>
+        <fo:table-body>
+          <fo:table-row>
+            <fo:table-cell>
+              <fo:block><fo:external-graphic src="{$basedir}/media/paladin-logo.svg"/></fo:block>
+            </fo:table-cell>
+            <fo:table-cell>
+              <fo:block>
+<xsl:if test="$customer-logo != ''">
+      <fo:external-graphic src="{$customer-logo}" margin-left="10mm"/>
+</xsl:if>
+              </fo:block>
+            </fo:table-cell>
+          </fo:table-row>
+        </fo:table-body>
+      </fo:table>
     </fo:block>
-<!--
-    <fo:block margin-right="7mm" margin-top="7mm">
-      <fo:external-graphic src="Customer_logo.png" />
-    </fo:block>
--->
 
     <fo:block space-before="5cm">
       <xsl:choose>
