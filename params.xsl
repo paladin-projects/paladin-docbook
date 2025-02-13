@@ -56,8 +56,7 @@
 <xsl:param name="line-height">1.5</xsl:param>
 
 <xsl:attribute-set name="table.table.properties">
-  <xsl:attribute name="border-before-width.conditionality">retain
-	</xsl:attribute>
+  <xsl:attribute name="border-before-width.conditionality">retain</xsl:attribute>
   <xsl:attribute name="border-collapse">collapse</xsl:attribute>
   <xsl:attribute name="table-layout">fixed</xsl:attribute>
 </xsl:attribute-set>
