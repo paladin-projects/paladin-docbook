@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="ru">
+  <info>
+    <title>Оценка состояния систем hostname1 (CZ3243YXX6) АО «Рога и Копыта»</title>
+    <author>
+      <personname>Вениамин Ипполитов</personname>
+      <affiliation>
+        <jobtitle>Руководитель</jobtitle>
+      </affiliation>
+    </author>
+    <asm>
+      <personname>Афанасий Денисов</personname>
+    </asm>
+    <copyright>
+      <year>2025</year>
+      <holder>ООО «Паладин Проекты»</holder>
+    </copyright>
+    <pubdate>14.02.2025</pubdate>
+    <edition>0.1</edition>
+    <legalnotice>
+      <title>Уведомление о конфиденциальности</title>
+      <para>Данный документ предназначен для использования только сотрудниками или подразделениями АО «Рога и Копыта», которым он адресован, и может содержать данные конфиденциального характера о компании не подлежащие раскрытию, если оно не требуется в соответствии с законодательством Российской Федерации. Документ также может содержать конфиденциальную информацию, относящуюся к компаниям-партнерам как со стороны АО «Рога и Копыта», так и со стороны ООО «Паладин Проекты». Данная информация также не подлежит разглашению.
+    </para>
+      <para>Никакая часть настоящего документа ни в каких целях не может быть воспроизведена в какой бы то ни было форме и какими бы то ни было средствами, будь то электронные или механические, включая фотокопирование и запись на электронный носитель, если на это нет письменного разрешения компаний ООО «Паладин Проекты» и АО «Рога и Копыта».
+    </para>
+    </legalnotice>
+  </info>
+  <chapter>
+    <title>Резюме для руководства</title>
+    <para>В рамках технического сервиса Оценка состояния систем был проведён анализ конфигурации и технического состояния системы HPE Superdome Flex Server (серийный номер CZ3243YXX6, имя хоста hostname1). В целом, система находится в рабочем состоянии, подключена к внутренней системе мониторинга. Выявлены следующие критичные замечания:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Установлены устаревшие версии микрокода, встроенного и системного ПО, подверженные уязвимостям безопасности.</para>
+      </listitem>
+      <listitem>
+        <para>В узлах системы установлены неподдерживаемые модули памяти.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Также выявлен ряд менее критичных замечаний: отсутствие актуальной документации, отсутствие резервного копирования конфигурации системы, отсутствие некоторых настроек, влияющих на мониторинг и управляемость системы и др. Подробнее о замечаниях см. <xref linkend="recommendations" endterm="recommendations-short"/>.</para>
+    <para>ООО «Паладин Проекты» рекомендует внести следующие изменения:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Обновить микрокод/встроенное/системное ПО до последней доступной версии, с учётом требований SimpliVity Interoperability Guide.</para>
+      </listitem>
+      <listitem>
+        <para>Переукомплектовать узлы оригинальной памятью HPE Smart Memory.</para>
+      </listitem>
+      <listitem>
+        <para>Сформировать техническую документацию на систему и поддерживать её в актуальном состоянии.</para>
+      </listitem>
+      <listitem>
+        <para>Настроить функции системы согласно рекомендациям производителя.</para>
+      </listitem>
+    </itemizedlist>
+    <para>ООО «Паладин Проекты» предлагает свои услуги по разработке плана действий и проведению работ по внесению изменений.</para>
+  </chapter>
+  <chapter>
+    <title>Введение</title>
+    <para>Оценка состояния систем — технический сервис, направленный на анализ конфигурации системы с точки зрения соответствия требованиям и рекомендациям производителя к эксплуатации систем подобного рода. Соответствие требованиям и рекомендациям производителя гарантирует, что система будет работать согласно документации, и в случае переконфигурации или отказа компонентов будет выдерживать заложенный уровень отказоустойчивости и сохранять работоспособность.</para>
+  </chapter>
+  <chapter>
+    <title>Результаты</title>
+    <!--   <para>.</para> -->
+    <section>
+      <title>Общие наблюдения</title>
+      <informaltable frame="all" pgwide="1">
+        <tgroup cols="4" colsep="1" rowsep="1">
+          <colspec colwidth="1*"/>
+          <colspec colwidth="6*"/>
+          <colspec colwidth="1*" align="center"/>
+          <colspec colwidth="5*"/>
+          <thead>
+            <row valign="middle">
+              <entry>
+                <para>№</para>
+              </entry>
+              <entry>
+                <para>Наблюдение</para>
+              </entry>
+              <entry>
+                <para>Да/Нет</para>
+              </entry>
+              <entry>
+                <para>Комментарий</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>
+                  <orderedlist>
+                    <listitem>
+                      <para/>
+                    </listitem>
+                  </orderedlist>
+                </para>
+              </entry>
+              <entry>
+                <para>Модель системы не снята с продажи</para>
+              </entry>
+              <entry>
+                <para>—</para>
+              </entry>
+              <entry>
+                <para/>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>
+                  <orderedlist continuation="continues">
+                    <listitem>
+                      <para/>
+                    </listitem>
+                  </orderedlist>
+                </para>
+              </entry>
+              <entry>
+                <para>Модель системы находится в периоде поддержки производителем (не достигла EOSL)</para>
+              </entry>
+              <entry>
+                <para>—</para>
+              </entry>
+              <entry>
+                <para/>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>
+                  <orderedlist continuation="continues">
+                    <listitem>
+                      <para/>
+                    </listitem>
+                  </orderedlist>
+                </para>
+              </entry>
+              <entry>
+                <para>Система подключена к внутренней системе мониторинга</para>
+              </entry>
+              <entry>
+                <para>—</para>
+              </entry>
+              <entry>
+                <para/>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>
+                  <orderedlist continuation="continues">
+                    <listitem>
+                      <para/>
+                    </listitem>
+                  </orderedlist>
+                </para>
+              </entry>
+              <entry>
+                <para>Существует техническая документация на систему</para>
+              </entry>
+              <entry>
+                <para>—</para>
+              </entry>
+              <entry>
+                <para/>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>
+                  <orderedlist continuation="continues">
+                    <listitem>
+                      <para/>
+                    </listitem>
+                  </orderedlist>
+                </para>
+              </entry>
+              <entry>
+                <para>Техническая документация на систему отражает актуальное состояние</para>
+              </entry>
+              <entry>
+                <para>—</para>
+              </entry>
+              <entry>
+                <para/>
+              </entry>
+            </row>
+            <!--
+          <row>
+            <entry><para><orderedlist continuation="continues"><listitem><para/></listitem></orderedlist></para></entry>
+            <entry><para></para></entry>
+            <entry><para></para></entry>
+            <entry><para></para></entry>
+          </row>
+-->
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+    <section>
+      <title>Анализ сервисных заметок (Support Alerts/Notes)</title>
+      <para>Всего проанализировано 58 заметок, 18 из них применимы к рассматриваемой системе. Применимые заметки указаны в таблице ниже.</para>
+      <informaltable frame="all" pgwide="1">
+        <tgroup cols="5" colsep="1" rowsep="1">
+          <colspec colwidth="1*"/>
+          <colspec colwidth="4*"/>
+          <colspec colwidth="2*"/>
+          <colspec colwidth="6*"/>
+          <colspec colwidth="3*"/>
+          <thead>
+            <row valign="middle">
+              <entry>
+                <para>№</para>
+              </entry>
+              <entry>
+                <para>ID</para>
+              </entry>
+              <entry>
+                <para>Тип</para>
+              </entry>
+              <entry>
+                <para>Заголовок</para>
+              </entry>
+              <entry>
+                <para>Триггер</para>
+              </entry>
+            </row>
+          </thead>
+          <tbody xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <row>
+              <entry>
+                <para>
+                  <orderedlist>
+                    <listitem>
+                      <para/>
+                    </listitem>
+                  </orderedlist>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <link xlink:href="https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbhf04333en_us">hpesbhf04333en_us</link>
+                </para>
+              </entry>
+              <entry>
+                <para>Security Bulletin</para>
+              </entry>
+              <entry>
+                <para>HPESBHF04333 rev.4 - HPE Integrated Lights-Out 5 (iLO 5), Multiple Vulnerabilities</para>
+              </entry>
+              <entry>
+                <para>Версия микрокода iLO 5 меньше 2.71</para>
+              </entry>
+            </row>
+            <!--
+          <row>
+            <entry><para><orderedlist continuation="continues"><listitem><para/></listitem></orderedlist></para></entry>
+            <entry><para><link xlink:href="https://support.hpe.com/hpesc/public/docDisplay?docId="></link></para></entry>
+            <entry><para>Security Bulletin</para></entry>
+            <entry><para></para></entry>
+            <entry><para></para></entry>
+          </row>
+-->
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </section>
+  </chapter>
+  <chapter>
+    <title>Выводы и рекомендации</title>
+    <titleabbrev xml:id="recommendations-short">Выводы и рекомендации</titleabbrev>
+    <para>Оценка состояния рассматриваемой системы приведена на диаграмме ниже.</para>
+    <para>Наиболее значимые замечания относятся к разделам «Аппаратная конфигурация» и «Микрокод, встроенное и системное ПО». Ниже приведены замечания и рекомендации по их устранению.</para>
+    <informaltable frame="all" pgwide="1">
+      <tgroup cols="5" colsep="1" rowsep="1">
+        <colspec colwidth="1*"/>
+        <colspec colwidth="5*"/>
+        <colspec colwidth="5*"/>
+        <colspec colwidth="2*"/>
+        <colspec colwidth="2*"/>
+        <thead>
+          <row valign="middle">
+            <entry>
+              <para>№</para>
+            </entry>
+            <entry>
+              <para>Наблюдение</para>
+            </entry>
+            <entry>
+              <para>Рекомендация</para>
+            </entry>
+            <entry>
+              <para>Приоритет</para>
+            </entry>
+            <entry>
+              <para>Сложность</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>
+                <orderedlist>
+                  <listitem>
+                    <para/>
+                  </listitem>
+                </orderedlist>
+              </para>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para>высокий</para>
+            </entry>
+            <entry>
+              <para>высокая</para>
+            </entry>
+          </row>
+          <!-- FIXME: For unknown reason bottom line of the last row in table is not drawn by DocBook XSLT. Empty row below fixes this -->
+          <row>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+          </row>
+          <!--
+          <row>
+            <entry><para><orderedlist continuation="continues"><listitem><para/></listitem></orderedlist></para></entry>
+            <entry><para></para></entry>
+            <entry><para></para></entry>
+            <entry><para></para></entry>
+            <entry><para></para></entry>
+          </row>
+-->
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </chapter>
+  <chapter>
+    <title>Заключение</title>
+    <para>Группа компаний «Паладин» благодарит Заказчика за выбор нас в качестве поставщика технической поддержки оборудования HPE. Отдельная благодарность персоналу АО «Рога и Копыта» за помощь в сборе данных:</para>
+    <itemizedlist>
+      <listitem>Иван Иванов</listitem>
+    </itemizedlist>
+  </chapter>
+  <!-- Appendices -->
+  <appendix>
+    <title>Конфигурация системы</title>
+    <table>
+      <title>Аппаратная конфигурация</title>
+      <tgroup cols="4">
+        <colspec colnum="1" colwidth="2*"/>
+        <colspec colnum="2" colwidth="5*"/>
+        <colspec colnum="3" colwidth="1*"/>
+        <colspec colnum="4" colwidth="2*"/>
+        <thead>
+          <row>
+            <entry>Продуктовый №</entry>
+            <entry>Описание</entry>
+            <entry>К-во</entry>
+            <entry>Серийный №</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+            <entry>
+              <para/>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </appendix>
+  <appendix>
+    <title>Информация о документе</title>
+    <table>
+      <tgroup cols="4" align="right">
+        <colspec colnum="1" colwidth="2*"/>
+        <colspec colnum="2" colwidth="1*"/>
+        <colspec colnum="3" colwidth="2*"/>
+        <colspec colnum="4" colwidth="5*"/>
+        <thead valign="middle">
+          <row>
+            <entry align="center">Дата</entry>
+            <entry align="center">Версия</entry>
+            <entry align="center">Автор</entry>
+            <entry align="center">Описание</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry align="left">29.03.2024</entry>
+            <entry align="left">0.9</entry>
+            <entry align="left">Иван Лянгузов</entry>
+            <entry align="left">Начальная версия отчёта</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </appendix>
+</book>
