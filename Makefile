@@ -12,14 +12,20 @@ all:
 test:
 	echo $(ROOTDIR) $(DOCBOOKXSLURI) $(CUSTOM_XSL)
 
+# Create XML Catalog
+catalog.xml:
+	xmlcatalog --noout --create $@
+	xmlcatalog --noout --add delegateURI http://docbook.sourceforge.net/release/xsl-ns/ file:///etc/xml/catalog $@
+	xmlcatalog --noout --add system Entities.ent file://$(ROOTDIR)Entities.ent $@
+
 %.pdf: %.fo $(FOP_CFG)
 	fop -c $(FOP_CFG) $< $@
 
 %.fo: %.xml $(CUSTOM_XSL)
-	xsltproc --xinclude -o $@ --stringparam profile.condition "$(SYSFAMILY)" $(CUSTOM_XSL) $<
+	xsltproc --xinclude -o $@ $(CUSTOM_XSL) $<
 
 %.html: %.xml $(HTML_XSL)
-	xsltproc --xinclude -o $@  --stringparam profile.condition "$(SYSFAMILY)" $(HTML_XSL) $<
+	xsltproc --xinclude -o $@ $(HTML_XSL) $<
 
 clean:
 	rm -rf *.fo *.pdf
