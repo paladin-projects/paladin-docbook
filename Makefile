@@ -26,12 +26,6 @@ catalog.xml:
 %.pdf: %.fo $(FOP_CFG)
 	fop -c $(FOP_CFG) $< $@
 
-%.fo: %.xml $(CUSTOM_XSL)
-	xsltproc --xinclude -o $@ $(CUSTOM_XSL) $<
-
-%.html: %.xml $(HTML_XSL)
-	xsltproc --xinclude -o $@ $(HTML_XSL) $<
-
 %.fo: %.xml $(FO_XSL)
 	$(EXPORTCAT) xsltproc --xinclude -o $@ $(XSLTPROCFLAGS) $(FO_XSL) $<
 
