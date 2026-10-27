@@ -17,8 +17,20 @@ test:
 	echo $(XSLTPROCFLAGS)
 	echo $(XML_CATALOG_FILES)
 
+# Create XML Catalog
+catalog.xml:
+	xmlcatalog --noout --create $@
+	xmlcatalog --noout --add delegateURI http://docbook.sourceforge.net/release/xsl-ns/ file:///etc/xml/catalog $@
+	xmlcatalog --noout --add system Entities.ent file://$(ROOTDIR)Entities.ent $@
+
 %.pdf: %.fo $(FOP_CFG)
 	fop -c $(FOP_CFG) $< $@
+
+%.fo: %.xml $(CUSTOM_XSL)
+	xsltproc --xinclude -o $@ $(CUSTOM_XSL) $<
+
+%.html: %.xml $(HTML_XSL)
+	xsltproc --xinclude -o $@ $(HTML_XSL) $<
 
 %.fo: %.xml $(FO_XSL)
 	$(EXPORTCAT) xsltproc --xinclude -o $@ $(XSLTPROCFLAGS) $(FO_XSL) $<

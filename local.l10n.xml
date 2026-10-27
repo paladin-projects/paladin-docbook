@@ -9,4 +9,16 @@
     <l:gentext key="Version" text="Версия: "/>
     <l:gentext key="PrepDate" text="Подготовлено: "/>
   </l:l10n>
+
+    <l:l10n language="ru">
+  <!-- word "chapter" removal from numbering -->
+      <l:context name="title-numbered"> 
+        <l:template name="d:chapter" text="%n. %t"/>
+      </l:context>
+  <!-- Set correct date format -->
+      <l:context name="datetime">
+        <l:template name="format" text="d.m.Y"/>
+      </l:context>
+    </l:l10n>
+  
 </l:i18n>

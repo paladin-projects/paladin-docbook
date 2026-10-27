@@ -15,15 +15,6 @@
 
   <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
 
-  <!-- word "chapter" removal from numbering -->
-  <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
-    <l:l10n language="ru">
-      <l:context name="title-numbered"> 
-        <l:template name="d:chapter" text="%n. %t"/>
-      </l:context>    
-    </l:l10n>
-  </l:i18n>
-
   <xsl:template match="processing-instruction('linebreak')">
     <fo:block/>
   </xsl:template>
