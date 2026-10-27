@@ -1,16 +1,21 @@
 ROOTDIR:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
-DOCBOOKXSLURI := "http://docbook.sourceforge.net/release/xsl-ns/current/"
-DOCBOOK_XSL := $(subst file://, ,$(shell xmlcatalog /etc/xml/catalog $(DOCBOOKXSLURI)fo/docbook.xsl))
-DOCBOOK_SCH := $(shell xmlcatalog /etc/xml/catalog http://docbook.org/xml/5.0/rng/docbook.rng)
-HTML_XSL := $(subst file://, ,$(shell xmlcatalog /etc/xml/catalog $(DOCBOOKXSLURI)html/docbook.xsl))
 FOP_CFG = $(ROOTDIR)fop/fop.xconf
-CUSTOM_XSL = $(ROOTDIR)docbook.xsl
+FO_XSL = $(ROOTDIR)docbook.xsl
+DOCBOOKXSLURI := "http://docbook.sourceforge.net/release/xsl-ns/current/"
+HTML_XSL := $(subst file://, ,$(shell xmlcatalog /etc/xml/catalog $(DOCBOOKXSLURI)html/docbook.xsl))
+
+ifdef XML_CATALOG_FILES
+XSLTPROCFLAGS := --catalogs $(XSLTPROCFLAGS)
+EXPORTCAT := XML_CATALOG_FILES=$(XML_CATALOG_FILES)
+endif
+
 .PHONY: all
 
 all:
 
 test:
-	echo $(ROOTDIR) $(DOCBOOKXSLURI) $(CUSTOM_XSL)
+	echo $(XSLTPROCFLAGS)
+	echo $(XML_CATALOG_FILES)
 
 # Create XML Catalog
 catalog.xml:
@@ -26,6 +31,12 @@ catalog.xml:
 
 %.html: %.xml $(HTML_XSL)
 	xsltproc --xinclude -o $@ $(HTML_XSL) $<
+
+%.fo: %.xml $(FO_XSL)
+	$(EXPORTCAT) xsltproc --xinclude -o $@ $(XSLTPROCFLAGS) $(FO_XSL) $<
+
+%.html: %.xml $(HTML_XSL)
+	$(EXPORTCAT) xsltproc --xinclude -o $@ $(XSLTPROCFLAGS) $(HTML_XSL) $<
 
 clean:
 	rm -rf *.fo *.pdf

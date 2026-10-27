@@ -5,6 +5,8 @@
 		version="1.0"
 		exclude-result-prefixes="d">
 
+<xsl:param name="basedir" select="'./'"/>
+<xsl:param name="customer-logo" select="''"/>
 <xsl:param name="fop.extensions" select="'1'"/>
 <xsl:param name="fop1.extensions" select="'1'"/>
 <xsl:param name="axf.extensions" select="'0'"/>

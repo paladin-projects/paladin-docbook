@@ -2,6 +2,9 @@
 <!DOCTYPE info [
   <!ENTITY % entities SYSTEM "Entities.ent">
   %entities;
+  <!ENTITY laquo "«">
+  <!ENTITY raquo "»">
+
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
