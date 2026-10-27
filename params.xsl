@@ -20,8 +20,8 @@
 <xsl:param name="body.margin.top">20mm</xsl:param>
 
 <!-- Отступы с боков -->
-<xsl:param name="page.margin.inner">35mm</xsl:param>
-<xsl:param name="page.margin.outer">13mm</xsl:param>
+<xsl:param name="page.margin.inner">10mm</xsl:param>
+<xsl:param name="page.margin.outer">10mm</xsl:param>
 <xsl:param name="body.start.indent">0pt</xsl:param>
 
 <!-- Отступы для фигур -->
@@ -30,7 +30,7 @@
 	<xsl:attribute name="margin-right">0pt</xsl:attribute>
 </xsl:attribute-set>
 
-<!-- Enlarge your Header :) --> 
+<!-- Enlarge your Header :) -->
 <xsl:attribute-set name="book.titlepage.recto.style">
   <xsl:attribute name="font-family">
       <xsl:value-of select="$title.fontset"/>
@@ -132,4 +132,3 @@ set       toc,title
 <xsl:param name="local.l10n.xml" select="document('local.l10n.xml')"/>
 
 </xsl:stylesheet>
-
